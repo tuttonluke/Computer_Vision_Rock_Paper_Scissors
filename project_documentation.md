@@ -19,4 +19,10 @@ Requisite packages installed into a new conda virtual environment, see [requirem
 detailed list of dependencies.
 
 ## Milestone 3: Create a Rock-Paper-Scissors Game
-Technologies / Skills:
+ 
+ Manual version of the rock-paper-scissors game created in the python file manual_rps.py. The get_computer_input function randomly chooses "rock", "paper", or "scissors", the get_user_input function asks the user for a choice from the same options, and the get_winner functions returns the winner according to the rules of the game. The play function runs the game as expected by calling the previous three functions sequentially.
+
+ ## Milestone 4: Use the Camera to Play Rock-Paper-Scissors
+ Technologies / Skills:
+ - opencv-python
+ - tensorflow
