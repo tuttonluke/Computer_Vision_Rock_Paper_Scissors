@@ -17,7 +17,7 @@ def get_user_choice() -> str:
     """Returns user choice of "rock", "paper", or "scissors".
 
     Returns:
-        int: _description_
+        str: Returns user choice of "rock", "paper", or "scissors".
     """
     choice = input("Enter rock, paper, or scissors. ")
     
