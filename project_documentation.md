@@ -27,5 +27,5 @@ detailed list of dependencies.
 
  The get_user_input function from the manual game is replaced by a get_prediction function which uses keras as an interface for the TensorFlow library to predict whether the user is displaying rock, paper, or scissors in the camera.
 
- The main.py file consolidates the code in a RockPaperScissors class and runs the game with the function play_rps.
+ The [main.py](https://github.com/tuttonluke/Computer_Vision_Rock_Paper_Scissors/blob/main/main.py) file consolidates the code in a RockPaperScissors class and runs the game with the function play_rps.
 
