@@ -6,9 +6,7 @@
 Technologies / Skills:
 - Teachable Machine
 
-Web application Teachable Machine is used for creating machine learning models based on image or audio files.
-A model to recognise the three classes of the game (Rock, Paper, and Scissors), as well as a 'Nothing' class, was
-trained and imported.
+Web application Teachable Machine is used for creating machine learning models based on image or audio files. A model to recognise the three classes of the game (Rock, Paper, and Scissors), as well as a 'Nothing' class, was trained and imported.
 
 ## Milestone 2: Install the Dependencies
 Technologies / Skills:
@@ -25,4 +23,9 @@ detailed list of dependencies.
  ## Milestone 4: Use the Camera to Play Rock-Paper-Scissors
  Technologies / Skills:
  - opencv-python
- - tensorflow
+ - keras
+
+ The get_user_input function from the manual game is replaced by a get_prediction function which uses keras as an interface for the TensorFlow library to predict whether the user is displaying rock, paper, or scissors in the camera.
+
+ The main.py file consolidates the code in a RockPaperScissors class and runs the game with the function play_rps.
+
