@@ -1,6 +1,6 @@
 # Project Documentation
 
-(Brief project description)
+This project uses the web application [TeachableMachine](https://teachablemachine.withgoogle.com/train) to train a deep learning model to recognise whether the user is displaying to the webcam rock, paper, or scissors, and executes the logic for a best-of-three game between user and computer.
 
 ## Milestone 1: Creation of the Computer Vision System
 Technologies / Skills:
