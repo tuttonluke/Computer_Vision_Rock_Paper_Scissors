@@ -46,7 +46,7 @@ class RockPaperScissors:
         cap = cv2.VideoCapture(0) # webcam referenced by integer 0 argument
         data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
         time_1 = time.time()
-
+        
         while True: 
             ret, frame = cap.read()
             resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
