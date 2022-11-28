@@ -4,6 +4,7 @@ import random
 import numpy as np
 import cv2
 from keras.models import load_model
+import traceback
 #%%
 class RockPaperScissors:
     """Implementation of the game Rock-Paper-Scissors using computer vision and
@@ -55,7 +56,8 @@ class RockPaperScissors:
             normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
             data[0] = normalized_image
             prediction = model.predict(data)
-            cv2.imshow('frame', frame)
+            flipped = flipped = cv2.flip(frame, 1)
+            cv2.imshow("Frame", flipped)
             # Press q to close the window
             # print(prediction)
             time_2 = time.time()
@@ -105,6 +107,9 @@ def play_rps():
         computer_choice = game.get_computer_choice()
         print(game.choices_dict.get(computer_choice))
         user_choice = game.get_prediction()
+        # close window by pressing q key or X button
+        if cv2.waitKey(1) & 0xFF == ord('q') or cv2.getWindowProperty("Frame", cv2.WND_PROP_VISIBLE) < 1:
+            break
         if user_choice < 3:
             print(f'You chose {game.choices_dict.get(user_choice)}')
             result = game.get_winner(computer_choice, user_choice)
@@ -121,5 +126,9 @@ def play_rps():
             print(f"User wins {game.user_wins} to {game.computer_wins}.")
             break
 #%%
-play_rps()
+if __name__ == "__main__":
+    try:
+        play_rps()
+    except Exception:
+        traceback.print_exc()
 # %%
