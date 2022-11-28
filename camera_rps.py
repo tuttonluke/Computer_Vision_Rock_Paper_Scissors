@@ -5,6 +5,8 @@ from keras.models import load_model
 import time
 import random
 #%%
+model_path = r"C:\Users\tutto\OneDrive\Documents\Documents\AiCore\Projects\Computer_Vision_Rock_Paper_Scissors\keras_model.h5"
+
 def get_computer_choice() -> int:
     """Randomly chooses one of three options:
     0: Rock
@@ -27,7 +29,7 @@ def get_prediction() -> int:
              2 Scissors
              3 Nothing
     """
-    model = load_model('keras_model.h5', compile=False)
+    model = load_model(model_path, compile=False)
     cap = cv2.VideoCapture(0) # webcam referenced by integer 0 argument
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
     time_1 = time.time()
@@ -109,6 +111,4 @@ def play_rps():
             break
 #%%
 play_rps()
-
 #%%
-time.time()
