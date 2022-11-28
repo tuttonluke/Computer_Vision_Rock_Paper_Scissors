@@ -19,6 +19,7 @@ class RockPaperScissors:
         self.computer_wins = 0
         self.user_wins = 0
         self.choices_dict = {0: "rock", 1 : "paper", 2 : "scissors"}
+        self.model_path = r"C:\Users\tutto\OneDrive\Documents\Documents\AiCore\Projects\Computer_Vision_Rock_Paper_Scissors\keras_model.h5"
     
     def get_computer_choice(self) -> int:
         """Randomly chooses one of three options:
@@ -42,7 +43,7 @@ class RockPaperScissors:
                 2 Scissors
                 3 Nothing
         """
-        model = load_model('keras_model.h5', compile=False)
+        model = load_model(self.model_path, compile=False)
         cap = cv2.VideoCapture(0) # webcam referenced by integer 0 argument
         data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
         time_1 = time.time()
@@ -121,3 +122,4 @@ def play_rps():
             break
 #%%
 play_rps()
+# %%
