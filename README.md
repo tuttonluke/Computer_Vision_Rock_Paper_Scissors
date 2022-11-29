@@ -2,7 +2,7 @@
 
 This projects implements the Rock-Paper-Scissors game, where the user plays with the computer using computer vision.
 
-To play the game, run the play_rps function in the file [main.py](https://github.com/tuttonluke/aicore_computer_vision_project/blob/main/main.py). A webcam window will appear on a three second timer, to which the user shows a hand gesture representing rock, paper, or scissors. The game will continue until either the user or the computer has won three rounds.
+To play the game, run the play_rps function in the file [play_rock_paper_scissors.py](https://github.com/tuttonluke/aicore_computer_vision_project/blob/main/play_rock_paper_scissors.py). A webcam window will appear on a three second timer, to which the user shows a hand gesture representing rock, paper, or scissors. The game will continue until either the user or the computer has won three rounds.
 
 # Project Documentation
 
