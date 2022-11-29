@@ -12,7 +12,7 @@ This project uses the web application [TeachableMachine](https://teachablemachin
 Technologies / Skills:
 - Teachable Machine
 
-Web application Teachable Machine is used for creating machine learning models based on image or audio files. A model to recognise the three classes of the game (Rock, Paper, and Scissors), as well as a 'Nothing' class, was trained and imported. The model is contained in the [keras_model.h5](https://github.com/tuttonluke/aicore_computer_vision_project/blob/main/keras_model.h5) file, and with the class labels shown in the [labels.txt](https://github.com/tuttonluke/aicore_computer_vision_project/blob/main/labels.txt) file.
+Web application Teachable Machine is used for creating machine learning models based on image or audio files. A model to recognise the three classes of the game (Rock, Paper, and Scissors), as well as a 'Nothing' class, was trained and imported. The model is contained in the [keras_model.h5](https://github.com/tuttonluke/aicore_computer_vision_project/blob/main/keras_model.h5) file, with the class labels shown in the [labels.txt](https://github.com/tuttonluke/aicore_computer_vision_project/blob/main/labels.txt) file.
 
 ## Milestone 2: Install the Dependencies
 Technologies / Skills:
