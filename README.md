@@ -12,7 +12,7 @@ This project uses the web application [TeachableMachine](https://teachablemachin
 Technologies / Skills:
 - Teachable Machine
 
-Web application Teachable Machine is used for creating machine learning models based on image or audio files. A model to recognise the three classes of the game (Rock, Paper, and Scissors), as well as a 'Nothing' class, was trained and imported.
+Web application Teachable Machine is used for creating machine learning models based on image or audio files. A model to recognise the three classes of the game (Rock, Paper, and Scissors), as well as a 'Nothing' class, was trained and imported. The model is contained in the [keras_model.h5](https://github.com/tuttonluke/aicore_computer_vision_project/blob/main/keras_model.h5) file, and with the class labels shown in the [labels.txt](https://github.com/tuttonluke/aicore_computer_vision_project/blob/main/labels.txt) file.
 
 ## Milestone 2: Install the Dependencies
 Technologies / Skills:
@@ -24,7 +24,7 @@ detailed list of dependencies.
 
 ## Milestone 3: Create a Rock-Paper-Scissors Game
  
- Manual version of the rock-paper-scissors game created in the python file manual_rps.py. The get_computer_input function randomly chooses "rock", "paper", or "scissors", the get_user_input function asks the user for a choice from the same options, and the get_winner functions returns the winner according to the rules of the game. The play function runs the game as expected by calling the previous three functions sequentially.
+ Manual version of the rock-paper-scissors game created in the python file manual_rps.py. The get_computer_input function randomly chooses "rock", "paper", or "scissors", the get_user_input function asks the user for a choice from the same options, and the get_winner functions returns the winner according to the rules of the game. The play function runs the game as expected by calling the previous three functions sequentially. This game is contained in the [manual_rps.py](https://github.com/tuttonluke/aicore_computer_vision_project/blob/main/manual_rps.py) file.
 
  ## Milestone 4: Use the Camera to Play Rock-Paper-Scissors
  Technologies / Skills:
