@@ -48,9 +48,15 @@ class RockPaperScissors:
         self.__current_time = time.time()
         fps = 1/(self.__current_time - self.__previous_time)
         self.__previous_time = self.__current_time
-        cv2.putText(img, str(int(fps)), (10 , 70), cv2.FONT_HERSHEY_PLAIN, 3, 
+        cv2.putText(img, str(int(fps)), (10 , 30), cv2.FONT_HERSHEY_PLAIN, 2, 
                 (255, 0, 255), 2)
         return img
+
+    def __display_countdown(self, img, time_1, time_2):
+        
+        countdown = round((time_2 - time_1), 0)
+        cv2.putText(img, f"Countdown: {4 - int(countdown)}", (200, 450), 
+            cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
     
     def __display_hand_landmarks(self, img):
         """Displays hand landmarks using mediapipe hand tracking,
@@ -115,12 +121,16 @@ class RockPaperScissors:
             # flip frame along horizontal axis
             flipped = flipped = cv2.flip(frame, 1)
             self.__display_frame_rate(flipped)
-            cv2.imshow("Frame", flipped)
             time_2 = time.time()
+            self.__display_countdown(flipped, time_1, time_2)
+            cv2.imshow("Frame", flipped)
+            
             # Press q to close the window
+            
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
             # 3 second timer
+            
             elif time_2 - time_1 > 3:
                 break
         cap.release()
@@ -165,7 +175,6 @@ def play_rps():
     game = RockPaperScissors()
     while True:
         computer_choice = game.get_computer_choice()
-        # print(game.choices_dict.get(computer_choice))
         user_choice = game.get_prediction()
         # close window by pressing q key
         if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -187,9 +196,10 @@ def play_rps():
         elif game.user_wins == 3:
             print(f"User wins {game.user_wins} to {game.computer_wins}.")
             break
-#%%
+#%%       
 if __name__ == "__main__":
     try:
         play_rps()
     except Exception:
         traceback.print_exc()
+#%%
