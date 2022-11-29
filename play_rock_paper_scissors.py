@@ -53,7 +53,17 @@ class RockPaperScissors:
         return img
 
     def __display_countdown(self, img, time_1, time_2):
-        
+        """Displays 3 second countdown on the display.
+
+        Parameters
+        ----------
+        img : img
+            Image frame of the video.
+        time_1 : float
+            Time of initiation of countdown.
+        time_2 : float
+            Time of frame initiation.
+        """
         countdown = round((time_2 - time_1), 0)
         cv2.putText(img, f"Countdown: {4 - int(countdown)}", (200, 450), 
             cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
