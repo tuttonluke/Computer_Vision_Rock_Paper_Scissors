@@ -1,9 +1,10 @@
 #%%
-import time
-import random
-import numpy as np
-import cv2
 from keras.models import load_model
+import cv2
+import mediapipe as mp
+import numpy as np
+import random
+import time
 import traceback
 #%%
 class RockPaperScissors:
@@ -21,10 +22,56 @@ class RockPaperScissors:
                    values rock (0), paper (1), and scissors (2). 
     """
     def __init__(self) -> None:
+        self.__mp_hands = mp.solutions.hands
+        self.__hands = self.__mp_hands.Hands()
+        self.__mp_draw = mp.solutions.drawing_utils
+        self.__previous_time = 0
+        self.__current_time = 0
         self.computer_wins = 0
         self.user_wins = 0
         self.choices_dict = {0: "rock", 1 : "paper", 2 : "scissors"}
         self.model_path = r"C:\Users\tutto\OneDrive\Documents\Documents\AiCore\Projects\Computer_Vision_Rock_Paper_Scissors\keras_model.h5"
+
+    def __display_frame_rate(self, img):
+        """Displays frame rate.
+
+        Parameters
+        ----------
+        img : img
+            Image frame of the video.
+
+        Returns
+        -------
+        Img
+            Img frame with framerate displayed.
+        """
+        self.__current_time = time.time()
+        fps = 1/(self.__current_time - self.__previous_time)
+        self.__previous_time = self.__current_time
+        cv2.putText(img, str(int(fps)), (10 , 70), cv2.FONT_HERSHEY_PLAIN, 3, 
+                (255, 0, 255), 2)
+        return img
+    
+    def __display_hand_landmarks(self, img):
+        """Displays hand landmarks using mediapipe hand tracking,
+        see https://google.github.io/mediapipe/solutions/hands.
+
+        Parameters
+        ----------
+        img : img
+            Image frame of the video.
+
+        Returns
+        -------
+        img
+            Img frame with hand landmarks displayed.
+        """
+        results = self.__hands.process(img)
+        if results.multi_hand_landmarks:
+                for hand_lmks in results.multi_hand_landmarks:
+                    self.__mp_draw.draw_landmarks(img, hand_lmks, 
+                        self.__mp_hands.HAND_CONNECTIONS)
+        return img
 
     def get_computer_choice(self) -> int:
         """Randomly chooses one of three options:
@@ -63,14 +110,17 @@ class RockPaperScissors:
             image_np = np.array(resized_frame)
             normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
             data[0] = normalized_image
+            self.__display_hand_landmarks(frame)
             prediction = model.predict(data)
+            # flip frame along horizontal axis
             flipped = flipped = cv2.flip(frame, 1)
+            self.__display_frame_rate(flipped)
             cv2.imshow("Frame", flipped)
-            # Press q to close the window
-            # print(prediction)
             time_2 = time.time()
+            # Press q to close the window
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
+            # 3 second timer
             elif time_2 - time_1 > 3:
                 break
         cap.release()
