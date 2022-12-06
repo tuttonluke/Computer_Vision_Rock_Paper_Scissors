@@ -30,7 +30,7 @@ class RockPaperScissors:
         self.computer_wins = 0
         self.user_wins = 0
         self.choices_dict = {0: "rock", 1 : "paper", 2 : "scissors"}
-        self.model_path = r"C:\Users\tutto\OneDrive\Documents\Documents\AiCore\Projects\Computer_Vision_Rock_Paper_Scissors\keras_model.h5"
+        self.model_path = r"C:\Users\tutto\OneDrive\Documents\Documents\AiCore\Projects\Computer_Vision_Rock_Paper_Scissors\project_files\keras_model.h5"
 
     def __display_frame_rate(self, img):
         """Displays frame rate.
